@@ -1,0 +1,10 @@
+<h1> Créer une dose pour le cocktail <%=@cocktail.name%></h1>
+
+<%= form_for [@cocktail, @dose] do |f| %>
+  <%= f.label :ingredient_id %>
+  <%= f.select :ingredient_id, Ingredient.all.map {|i| [ i.name, i.id ] } %>
+  <%= f.hidden_field :cocktail, :value => @cocktail.id %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit "Ajouter une dose" %>
+<% end %>

@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
-
-
+gem 'better_errors'
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'font-awesome-sass', '~> 4.2.0'
+gem 'simple_form'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

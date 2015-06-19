@@ -1,0 +1,19 @@
+<h1>Cocktail <%= @cocktail.name %> </h1>
+
+<% @cocktail.doses.each do |dose| %>
+  <p><%= dose.ingredient.name%>  <%= dose.description%>   <%= link_to 'Détails', cocktail_dose_path(@cocktail, dose)%> </p>
+
+<%end%>
+
+<%= form_for [@cocktail, @dose] do |f| %>
+  <%= f.label :ingredient_id %>
+  <%= f.select :ingredient_id, Ingredient.all.map {|i| [ i.name, i.id ] } %>
+  <%= f.hidden_field :cocktail, :value => @cocktail.id %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit "Ajouter une dose" %>
+<% end %>
+
+
+<%= link_to 'Ajouter une dose', new_cocktail_dose_path(@cocktail) %>
+

@@ -1,0 +1,6 @@
+<h1> Les cocktails de Mister Cocktail </h1>
+<ul>
+<% @cocktails.each do |cocktail| %>
+  <li> <%= cocktail.name %>  <%= link_to 'Voir le cocktail', cocktail_path(cocktail)%>     <%= link_to 'Supprimer', cocktail_path(cocktail), method: :delete, data: {confirm: "Are you sure ?"}%></li>
+<% end %>
+</ul>
